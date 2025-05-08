@@ -58,9 +58,10 @@
   <p id="result" class="box"></p>
 
   <script>
+    const random = Math.floor(Math.random() * 10) + 1;
+    
     function checkGuess() {
       const guess = document.getElementById("guess").value;
-      const random = Math.floor(Math.random() * 10) + 1;
       const result = document.getElementById("result");
 
       if (parseInt(guess) === random) {
