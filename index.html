@@ -64,8 +64,8 @@
   <div class="input-box">
     <input type="number" id="guess" min="1" max="10" placeholder="Enter a number" class="number-input">
     <button onclick="checkGuess()">Check</button>
-    <p id="result" class="box"></p>
-    <p id="streakDisplay" class="box" style="color: white;">
+    <p id="result" style="color: white;"></p>
+    <p id="streakDisplay" style="color: white;">
       Current Streak: <span id="streak" style="color: white;">0</span>
     </p>
   </div>
@@ -84,7 +84,7 @@
         result.textContent = `Correct! The number was ${random}.`;
       } else {
         correctStreak = 0;
-        result.textContent = `Wrong! The number was ${random}. Try again.`;
+        result.textContent = `Wrong! The number was ${random}.`;
       }
 
       // Update the streak display
