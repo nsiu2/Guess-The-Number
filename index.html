@@ -37,9 +37,10 @@
     }
     .number-input {
       margin-top: 15px;
-      padding: 8px 20px;
+      padding: 10px 15px;
       font-size: 16px;
       border: 3px solid black;
+      width: 250px;              /* Make text fit */
       border-radius: 5px;
     }
   </style>
@@ -52,5 +53,22 @@
     Enter a number from 1-10 below!
   </p>
   <input type="number" min="1" max="10" placeholder="Enter a number" class="number-input">
+  <button onclick="checkGuess()">Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkGuess() {
+      const guess = document.getElementById("guess").value;
+      const random = Math.floor(Math.random() * 10) + 1;
+      const result = document.getElementById("result");
+
+      if (parseInt(guess) === number) {
+        result.textContent = "Correct!";
+      } else {
+        result.textContent = "Try again!";
+      }
+    }
+  </script>
 </body>
 </html>
