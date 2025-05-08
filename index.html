@@ -10,26 +10,34 @@
       font-family: 'Comic Sans MS', cursive, sans-serif;
     }
     h1 {
-      background-color: #1f4277; /* Space Blue text */
+      background-color: #1f4277; /* Space Blue background color for the header box */
       color: white;              /* White text */
       padding: 20px;             /* Padding around the text */
       border-radius: 10px;       /* Rounded corners */
       display: inline-block;     /* Make the header box fit the text */
     }
-    .outer-box {
-      background-color: #000080;  /* Navy Blue background for the larger box */
+    .h1-outer-box {
+      background-color: #000080;  /* Navy Blue background for the outer box */
       padding: 25px;              /* Space around the smaller box */
-      border-radius: 15px;        /* Rounded corners for the larger box */
-      border: 2px solid black;    /* This outlines the box */
+      border-radius: 12px;        /* Rounded corners for the larger box */
+      border: 3px solid black;    /* This outlines the box */
       display: inline-block;      /* Make the outer box wrap the inner box */
     }
-
+    p.box {
+      background-color: #1f4277; /* background color */
+      color: white;              /* White text */
+      border: 3px solid black;   /* Add a border (box) */
+      padding: 10px;             /* Add space inside the box */
+      width: 300px;              /* Optional: control width */
+    }
   </style>
 </head>
 <body>
-  <div class="outer-box">
+  <div class="h1-outer-box">
     <h1>Guess The Number Game!</h1>
   </div>
-  <p>Empty</p>
+  <p class="box">
+    Enter a number from 1-10 below!
+  </p>
 </body>
 </html>
