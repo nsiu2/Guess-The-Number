@@ -27,21 +27,24 @@
       display: inline-block;
       margin-top: 40px;
     }
-    p.box {
-      background-color: #1f4277;
-      color: white;
-      padding: 10px;
+    .input-box {
+      background-color: #1f4277; /* Same background for the container */
+      padding: 20px;
       border: 3px solid black;
       width: 300px;
       text-align: center;
-      position: relative;
-      z-index: 1;
+      border-radius: 10px;
     }
-    .number-input, button {
-      position: relative;
-      width: 250px;
-      z-index: 2; 
-      margin-top: 15px;
+
+    .number-input, .input-container button {
+      background-color: #fff;
+      color: #333;
+      border: 1px solid #333;
+      padding: 10px 15px;
+      font-size: 16px;
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -49,9 +52,18 @@
   <div class="h1-outer-box">
     <h1>Guess The Number Game!</h1>
   </div>
-  <p class="box" id="result"></p>
-  <input type="number" id="guess" min="1" max="10" placeholder="Enter a number" class="number-input">
-  <button onclick="checkGuess()">Check</button>
+
+  <p class="box">
+    Enter a number from 1-10 below!
+  </p>
+
+  <!-- Input, button, and check box inside a container -->
+  <div class="input-box">
+    <input type="number" id="guess" min="1" max="10" placeholder="Enter a number" class="number-input">
+    <button onclick="checkGuess()">Check</button>
+  </div>
+
+  <p id="result" class="box"></p>
 
   <script>
     const random = Math.floor(Math.random() * 10) + 1;
@@ -67,6 +79,6 @@
       }
     }
   </script>
+
 </body>
 </html>
-
