@@ -6,42 +6,41 @@
     body {
       display: flex;
       flex-direction: column;
-      align-items: center;         /* Center items */
-      min-height: 100vh;           /* Full height of the viewport */
-      background-color: #D1FFBD;   /* Light green background for the page */
-      margin: 0;                   /* Set margins to 0 */
-      font-family: 'Comic Sans MS', cursive, sans-serif; /* Set font */
+      align-items: center;
+      min-height: 100vh;
+      background-color: #D1FFBD;
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
     }
     h1 {
-      background-color: #1f4277; /* Space Blue background color for the header box */
-      color: white;              /* White text */
-      padding: 20px;             /* Padding around the text */
-      border-radius: 10px;       /* Rounded corners */
-      border: 3px solid black;   /* Outline the box black */
-      display: inline-block;     /* Make the header box fit the text */
+      background-color: #1f4277;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 3px solid black;
+      display: inline-block;
     }
     .h1-outer-box {
-      background-color: #000080;  /* Navy Blue background for the outer box */
-      padding: 8px;               /* Space around the smaller box */
-      border: 3px solid black;    /* Outline the box black */
-      display: inline-block;      /* Make the outer box wrap the inner box */
-      margin-top: 40px;           /* Move the header box down */
+      background-color: #000080;
+      padding: 8px;
+      border: 3px solid black;
+      display: inline-block;
+      margin-top: 40px;
     }
     p.box {
-      background-color: #1f4277; /* background color */
-      color: white;              /* White text */
-      padding: 10px;             /* Add space inside the box */
-      border: 3px solid black;   /* Outline the box black */
-      width: 300px;              /* Set box width */
-      text-align: center;        /* Center the text */
-    }
-    .number-input {
-      margin-top: 15px;
-      padding: 10px 15px;
-      font-size: 16px;
+      background-color: #1f4277;
+      color: white;
+      padding: 10px;
       border: 3px solid black;
-      width: 250px;              /* Make text fit */
-      border-radius: 5px;
+      width: 300px;
+      text-align: center;
+      position: relative;
+      z-index: 1;  /* Behind the input and button */
+    }
+    .number-input, button {
+      position: relative;
+      z-index: 2;  /* Above the result box */
+      margin-top: 15px;
     }
   </style>
 </head>
@@ -49,22 +48,18 @@
   <div class="h1-outer-box">
     <h1>Guess The Number Game!</h1>
   </div>
-  <p class="box">
-    Enter a number from 1-10 below!
-  </p>
-  <input type="number" min="1" max="10" placeholder="Enter a number" class="number-input">
-  <button onclick="checkGuess()" style="margin-top: 15px;">Check</button>
-
-  <p id="result" class="box"></p>
+  <p class="box" id="result"></p>
+  <input type="number" id="guess" min="1" max="10" placeholder="Enter a number" class="number-input">
+  <button onclick="checkGuess()">Check</button>
 
   <script>
     const random = Math.floor(Math.random() * 10) + 1;
-    
+
     function checkGuess() {
-      const guess = document.getElementById("guess").value;
+      const guess = parseInt(document.getElementById("guess").value);
       const result = document.getElementById("result");
 
-      if (parseInt(guess) === random) {
+      if (guess === random) {
         result.textContent = "Correct!";
       } else {
         result.textContent = "Try again!";
@@ -73,3 +68,4 @@
   </script>
 </body>
 </html>
+
